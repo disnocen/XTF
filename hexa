@@ -1,0 +1,8 @@
+#!/bin/sh
+
+in=$1
+num=$(echo $in|cut -d":" -f1)
+rest=$(echo $in|cut -d":" -f2)
+hex=$(echo "obase=16; $num+10"|bc|sed s"/\([A-F]\)"/"\L\1"/)
+echo $hex:$rest
+
